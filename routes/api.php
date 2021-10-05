@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\SclassController;
+use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SubjectController;
-use App\Models\Sclass;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('/sclass', SclassController::class);
 Route::apiResource('/subject', SubjectController::class);
+Route::apiResource('/section', SectionController::class);
