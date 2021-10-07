@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SclassController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
@@ -26,3 +27,13 @@ Route::apiResource('/sclass', SclassController::class);
 Route::apiResource('/subject', SubjectController::class);
 Route::apiResource('/section', SectionController::class);
 Route::apiResource('/student', StudentController::class);
+
+Route::group([
+    'prefix' => 'auth'
+
+], function () {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::post('/me', [AuthController::class, 'me']);
+});
